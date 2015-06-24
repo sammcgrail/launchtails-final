@@ -1,0 +1,27 @@
+<div class="row">
+  <%- if @drink.errors.present? -%>
+    <div class="large-12 alert-box alert" data-alert>
+      <ul>
+        <%- @drink.errors.full_messages.each do |error| -%>
+          <li><%= error %></li>
+        <%- end -%>
+      </ul>
+    </div>
+  <%- end -%>
+
+  <div class="large-12">
+    <h1><%= @drink.title %></h1>
+
+<%= content_tag(:div, class:"drink-container") do %>
+    <%=content_tag(:div,  @drink.description, class:"drink-description") %>
+    <%=content_tag(:div,  "Featured: #{@drink.featured}", class:"drink-featured") %>
+    <%=content_tag(:div,  "Category: #{@category}", class:"drink-category") %>
+    <%=content_tag(:div,  "Alcohol Level: #{@drink.alcohol_level}", class:"drink-alcohol-level") %>
+<% end %>
+
+
+<br>
+    <a href="/drinks">back to all drinks</a>
+
+  </div>
+</div>

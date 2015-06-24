@@ -1,0 +1,3 @@
+.scratch
+
+  <%= redirect_to(drinks_path) %>

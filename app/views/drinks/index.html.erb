@@ -1,0 +1,32 @@
+<div class="row">
+  <div class="large-12">
+    <h1>Drinks</h1>
+
+    <%- if !@drinks.empty? -%>
+      <table>
+        <tr>
+          <th>Title</th>
+          <th>Description</th>
+          <th>Featured?</th>
+        </tr>
+
+        <%- @drinks.each do |drink| -%>
+          <tr>
+            <td><%= link_to(drink.title, "#{drinks_path}/#{drink.id}")  %></td>
+            <td><%= truncate(drink.description, length: 30) %></td>
+            <td><%= drink.featured %></td>
+            <td>
+              <%= link_to 'Delete',
+                '/drinks/' + drink.to_param,
+                method: :delete %>
+            </td>
+          </tr>
+        <%- end -%>
+      </table>
+
+    <%- end -%>
+  <a href="/featured_drinks">link to featured drinks</a><br>
+      <a href="/drinks/new">make a new drink</a><br>
+          <a href="/categories">link to categories</a><br>
+  </div>
+</div>
